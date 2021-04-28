@@ -51,6 +51,7 @@
         setTimeout(function () {
             inputWord.value = "";
             inputWord.focus();
+            inputWord.maxLength = letters;
         }, 0);
     }
 
@@ -100,8 +101,6 @@
 
         let solution = findWordLadder(currentWord, endWord, words[letters]);
 
-        console.log(solution);
-
         let { endDifs, difIndex } = getWordDifs(currentWord, solution[1], endWord);
 
         ladder.push({ word: solution[1], i: difIndex });
@@ -135,11 +134,11 @@
         <div>
             <button disabled={ladder.length < 1} on:click={back}>⬅️</button>
             <form on:submit|preventDefault={handleSubmit}>
-                <label for="word" style="display: none;">word</label>
+                <label for="word">word</label>
                 <input
                     id="word"
                     type="text"
-                    maxlength="4"
+                    placeholder="word"
                     class:shake={errorMessage != ""}
                     bind:this={inputWord}
                     on:keypress={() => (errorMessage = "")}
@@ -159,7 +158,6 @@
 </main>
 
 <style lang="scss">
-    // todo
     button {
         margin-bottom: 1.5rem;
         padding: 0.2rem;
@@ -173,14 +171,8 @@
         justify-content: center;
 
         button {
-            display: inline-flex;
-            align-items: center;
-
-            padding-bottom: 0.2rem;
-            width: 3rem;
-
+            width: 3.5rem;
             font-size: 2.2rem;
-
             margin-bottom: 0;
         }
 
@@ -189,24 +181,37 @@
         }
     }
 
-    input {
-        margin: 0 1rem;
-        padding: 0.25rem 0.5rem;
-        width: 5rem;
+    form {
+        input {
+            margin: 0 0.75rem;
+            padding: 0.25rem 0.5rem;
+            width: 6.5rem;
 
-        border-radius: 0.5rem;
-        border: 0.2rem solid;
+            border-radius: 0.5rem;
+            border: 0.2rem solid;
 
-        text-transform: lowercase;
-        text-align: center;
+            text-transform: lowercase;
+            text-align: center;
 
-        font-family: inherit;
-        font-size: 2.5rem;
-        font-weight: 500;
-    }
+            font-family: inherit;
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
 
-    input:focus {
-        outline: none;
+        input:focus {
+            outline: none;
+        }
+
+        label {
+            position: absolute;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0;
+        }
     }
 
     .shake {
