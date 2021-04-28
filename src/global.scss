@@ -40,9 +40,16 @@ button {
 }
 
 .footer {
+    display: flex;
+    flex-direction: column;
+
     margin-top: auto;
     padding: 1rem;
     font-size: 1.25rem;
     font-weight: 500;
     color: rgb(0, 100, 200);
+
+    a:first-child {
+        margin-bottom: 0.3rem;
+    }
 }
