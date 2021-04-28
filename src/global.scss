@@ -18,15 +18,15 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    margin: 0.25rem 1rem;
-    font-size: 2.75rem;
-    font-weight: 900;
-}
-
 a {
     text-decoration: none;
     color: inherit;
+
+    h1 {
+        margin: 0.25rem 1rem;
+        font-size: 2.75rem;
+        font-weight: 900;
+    }
 }
 
 button {

@@ -10,7 +10,7 @@
     let [startWord, endWord] = ["-", "-"];
 
     let words = {}; // word lists
-    let letters = 3; // defualt to 3 letter words
+    let letters = 4; // defualt to 3 letter words
 
     let ladder = []; // current game words
 
@@ -135,7 +135,9 @@
         <div>
             <button disabled={ladder.length < 1} on:click={back}>⬅️</button>
             <form on:submit|preventDefault={handleSubmit}>
+                <label for="word" style="display: none;">word</label>
                 <input
+                    id="word"
                     type="text"
                     maxlength="4"
                     class:shake={errorMessage != ""}
@@ -160,8 +162,9 @@
     // todo
     button {
         margin-bottom: 1.5rem;
+        padding: 0.2rem;
 
-        font-size: 1.25rem;
+        font-size: 2rem;
         font-weight: 500;
     }
 
