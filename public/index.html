@@ -12,8 +12,10 @@
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;900&display=swap"
+            onload="this.rel='stylesheet'"
         />
 
         <script defer src="/build/bundle.js"></script>
@@ -25,5 +27,11 @@
         <div class="footer">
             <a href="https://twitter.com/ajzbc">👋 @ajzbc</a>
         </div>
+
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "c405c9c1418b4e28a93eb10dd5007a8c"}'
+        ></script>
     </body>
 </html>
